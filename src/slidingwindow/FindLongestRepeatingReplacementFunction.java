@@ -1,7 +1,32 @@
 package slidingwindow;
 
 public class FindLongestRepeatingReplacementFunction {
+	// Sliding window methods
     public int characterReplacement(String s, int k) {
+        int start = 0;
+        int currentBiggest = 0;
+        
+        // Since only A-Z
+        int[] map = new int[26];
+        
+        // Start will only move when we can't replace to get the max anymore
+        for(int end = 0; end < s.length(); end++){
+            map[s.charAt(end) - 'A']++;
+            
+            currentBiggest = Math.max(currentBiggest, map[s.charAt(end) - 'A']);
+            
+            // currentBiggest + k is the limit of current sliding windows
+            if(currentBiggest + k < end - start + 1){
+                map[s.charAt(start) - 'A']--;
+                start++; 
+            }
+        }
+        
+        return s.length() - start;
+    }
+    
+    // A longer way of sliding windows, using extra space to store the max length
+    public int characterReplacement1(String s, int k) {
         int maxCurrentUniqueCount = 0;
         int start = 0;
         int maxLength = 0;
