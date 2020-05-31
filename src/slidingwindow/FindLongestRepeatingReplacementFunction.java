@@ -6,7 +6,7 @@ public class FindLongestRepeatingReplacementFunction {
         int start = 0;
         int currentBiggest = 0;
         
-        // Since only A-Z
+        // Since only A-Z, using - 'A' to count
         int[] map = new int[26];
         
         // Start will only move when we can't replace to get the max anymore
