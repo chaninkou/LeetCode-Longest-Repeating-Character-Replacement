@@ -1,4 +1,4 @@
-package slidingwindow;
+package leetcode424;
 
 public class FindLongestRepeatingReplacementFunction {
 	// Sliding window methods
